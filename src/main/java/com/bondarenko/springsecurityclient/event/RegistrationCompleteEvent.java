@@ -9,8 +9,8 @@ import org.springframework.context.ApplicationEvent;
 @Setter
 public class RegistrationCompleteEvent extends ApplicationEvent {
 
-    private User user;
-    private String applicationUrl;
+    private final User user;
+    private final String applicationUrl;
 
     public RegistrationCompleteEvent(User user, String applicationUrl) {
         super(user);

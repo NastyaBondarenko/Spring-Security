@@ -9,26 +9,29 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 public class WebSecurityConfig {
-//
-//    private static final String[] WHITE_LIST_URLS = {
-//            "/hello",
-//            "/register"
-//    };
+
+
+    private static final String[] WHITE_LIST_URLS = {
+            "/hello",
+            "/register",
+            "/verifyRegistration*",
+            "/resendVerifyToken*"
+    };
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(11);
     }
 
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .cors()
-//                .and()
-//                .csrf()
-//                .disable()
-//                .authorizeHttpRequests()
-//                .antMatchers(WHITE_LIST_URLS).permitAll();
-//        return http.build();
-//    }
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .cors()
+                .and()
+                .csrf()
+                .disable()
+                .authorizeHttpRequests()
+                .antMatchers(WHITE_LIST_URLS).permitAll();
+        return http.build();
+    }
 }

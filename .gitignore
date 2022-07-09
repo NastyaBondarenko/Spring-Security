@@ -31,3 +31,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Maven
+
+target/
+
+# Intellij
+.idea/
+*.iml
+out
+
+.mvn
+mvnw
+mvnw.cmd
+.mvn/wrapper
+
+
